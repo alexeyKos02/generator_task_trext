@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// Замените 'generator-task-trext' на имя вашего репозитория GitHub
-const REPO_NAME = 'generator-task-trext'
+const REPO_NAME = 'generator_task_trext'
 
 export default defineConfig({
   plugins: [vue()],
