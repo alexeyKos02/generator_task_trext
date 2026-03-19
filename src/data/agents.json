@@ -1,0 +1,66 @@
+[
+  {
+    "name": "ООО «Сота Центр»",
+    "gateId": 3026,
+    "guid1c": "",
+    "salesChannel1cbu": "",
+    "salesChannelReports": "",
+    "terminalIds": [31954824, 31954825, 31954826, 31954827, 31954828, 31954835]
+  },
+  {
+    "name": "ИП Черных Денис Александрович",
+    "gateId": 3038,
+    "guid1c": "",
+    "salesChannel1cbu": "",
+    "salesChannelReports": "",
+    "terminalIds": [31954821, 31954822, 31954873]
+  },
+  {
+    "name": "ИП Зайдуллин Ренат Азатович",
+    "gateId": 3042,
+    "guid1c": "a956c365-f1f2-11f0-9062-005056a25b06",
+    "salesChannel1cbu": "Розница",
+    "salesChannelReports": "Точка продаж",
+    "terminalIds": [31954829]
+  },
+  {
+    "name": "ООО «ТрейдМаркет»",
+    "gateId": 3055,
+    "guid1c": "b123d456-a2b3-12e1-8173-006167b36c17",
+    "salesChannel1cbu": "Опт",
+    "salesChannelReports": "Дистрибьютор",
+    "terminalIds": [31954830, 31954831, 31954832, 31954833, 31954834]
+  },
+  {
+    "name": "ИП Кузнецова Анна Владимировна",
+    "gateId": 3061,
+    "guid1c": "",
+    "salesChannel1cbu": "",
+    "salesChannelReports": "",
+    "terminalIds": [31954840, 31954841]
+  },
+  {
+    "name": "ООО «АгроСнаб»",
+    "gateId": 3072,
+    "guid1c": "c234e567-b3c4-23f2-9284-007278c47d28",
+    "salesChannel1cbu": "Розница",
+    "salesChannelReports": "Точка продаж",
+    "terminalIds": [31954850, 31954851, 31954852, 31954860, 31954861, 31954870]
+  },
+  {
+    "name": "ИП Петров Алексей Николаевич",
+    "gateId": 3080,
+    "guid1c": "",
+    "salesChannel1cbu": "",
+    "salesChannelReports": "",
+    "terminalIds": []
+  },
+  {
+    "name": "ООО «Меркурий»",
+    "gateId": 3091,
+    "guid1c": "d345f678-c4d5-34g3-a395-008389d58e39",
+    "salesChannel1cbu": "Франчайзинг",
+    "salesChannelReports": "Партнёр",
+    "terminalIds": [31954880, 31954881, 31954882, 31954883, 31954884]
+  }
+]
