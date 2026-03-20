@@ -120,10 +120,10 @@ const problemAgents = computed(() =>
 
 .reminders__body {
   border-top: 1px solid #e5e7eb;
-  padding: 4px 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  background: #f8fafc;
+  background: #fff;
 }
 
 .reminders__empty {

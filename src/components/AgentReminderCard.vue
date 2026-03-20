@@ -1,19 +1,19 @@
 <template>
-  <div class="card">
-    <button class="card__row" @click="open = !open">
-      <span class="card__accent" :class="accentClass" />
-      <svg class="card__chevron" :class="{ open }" width="10" height="10" viewBox="0 0 10 10" fill="none">
-        <path d="M3 2l4 3-4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <div class="item">
+    <button class="item__row" @click="open = !open">
+      <svg class="item__chevron" :class="{ open }" width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M4 2.5l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span class="card__name">{{ agent.name }}</span>
-      <span class="card__pill" :class="accentClass">{{ agent.problemTerminals.length }}</span>
+      <span class="item__dot" :class="dotClass" />
+      <span class="item__name">{{ agent.name }}</span>
+      <span class="item__count" :class="countClass">{{ agent.problemTerminals.length }}</span>
     </button>
 
     <Transition name="drop">
-      <div v-if="open" class="card__body">
-        <div v-for="t in agent.problemTerminals" :key="t.id" class="card__terminal">
-          <span class="card__id">{{ t.id }}</span>
-          <span class="card__badge" :class="badgeClass(t.status)">{{ t.status }}</span>
+      <div v-if="open" class="item__terminals">
+        <div v-for="t in agent.problemTerminals" :key="t.id" class="item__terminal">
+          <span class="item__tid">{{ t.id }}</span>
+          <span class="item__badge" :class="badgeClass(t.status)">{{ t.status }}</span>
         </div>
       </div>
     </Transition>
@@ -37,108 +37,105 @@ function badgeClass(status: string) {
   return 'badge--gray'
 }
 
-const accentClass = computed(() => {
+const dotClass = computed(() => {
   const classes = props.agent.problemTerminals.map(t => badgeClass(t.status))
-  if (classes.includes('badge--red'))    return 'accent--red'
-  if (classes.includes('badge--orange')) return 'accent--orange'
-  if (classes.includes('badge--yellow')) return 'accent--yellow'
-  if (classes.includes('badge--blue'))   return 'accent--blue'
-  return 'accent--gray'
+  if (classes.includes('badge--red'))    return 'dot--red'
+  if (classes.includes('badge--orange')) return 'dot--orange'
+  if (classes.includes('badge--yellow')) return 'dot--yellow'
+  if (classes.includes('badge--blue'))   return 'dot--blue'
+  return 'dot--gray'
 })
+
+const countClass = computed(() => dotClass.value.replace('dot--', 'count--'))
 </script>
 
 <style scoped>
-.card {}
+.item {}
 
-.card__row {
+.item__row {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 3px 12px;
+  gap: 8px;
+  padding: 9px 16px;
   background: none;
   border: none;
   cursor: pointer;
   transition: background 0.1s;
-  min-height: 26px;
+  text-align: left;
 }
-.card__row:hover { background: #f1f5f9; }
+.item__row:hover { background: #f3f4f6; }
 
-.card__accent {
-  display: block;
-  width: 3px;
-  height: 12px;
-  border-radius: 2px;
+.item__chevron {
   flex-shrink: 0;
-}
-.accent--red    { background: #ef4444; }
-.accent--orange { background: #f97316; }
-.accent--yellow { background: #eab308; }
-.accent--blue   { background: #3b82f6; }
-.accent--gray   { background: #d1d5db; }
-
-.card__chevron {
-  flex-shrink: 0;
-  color: #cbd5e1;
+  color: #9ca3af;
   transition: transform 0.15s;
 }
-.card__chevron.open { transform: rotate(90deg); }
+.item__chevron.open { transform: rotate(90deg); }
 
-.card__name {
+.item__dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.dot--red    { background: #ef4444; }
+.dot--orange { background: #f97316; }
+.dot--yellow { background: #eab308; }
+.dot--blue   { background: #3b82f6; }
+.dot--gray   { background: #d1d5db; }
+
+.item__name {
   flex: 1;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 500;
-  color: #374151;
-  text-align: left;
+  color: #1e293b;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.card__pill {
+.item__count {
   flex-shrink: 0;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  line-height: 20px;
   padding: 0 6px;
   border-radius: 99px;
-  min-width: 18px;
-  height: 16px;
-  line-height: 16px;
   text-align: center;
 }
-.card__pill.accent--red    { background: #fee2e2; color: #dc2626; }
-.card__pill.accent--orange { background: #ffedd5; color: #ea580c; }
-.card__pill.accent--yellow { background: #fef9c3; color: #ca8a04; }
-.card__pill.accent--blue   { background: #dbeafe; color: #2563eb; }
-.card__pill.accent--gray   { background: #f1f5f9; color: #94a3b8; }
+.count--red    { background: #fee2e2; color: #dc2626; }
+.count--orange { background: #ffedd5; color: #ea580c; }
+.count--yellow { background: #fef9c3; color: #ca8a04; }
+.count--blue   { background: #dbeafe; color: #2563eb; }
+.count--gray   { background: #f1f5f9; color: #94a3b8; }
 
-/* Терминалы */
-.card__body {
-  padding: 0 12px 3px 33px;
+.item__terminals {
+  padding: 2px 16px 8px 44px;
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 3px;
 }
 
-.card__terminal {
+.item__terminal {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1px 0;
+  padding: 2px 0;
 }
 
-.card__id {
-  font-size: 11px;
-  color: #9ca3af;
+.item__tid {
+  font-size: 11.5px;
+  color: #94a3b8;
   font-family: ui-monospace, monospace;
 }
 
-.card__badge {
-  font-size: 9.5px;
+.item__badge {
+  font-size: 10px;
   font-weight: 600;
-  padding: 0 7px;
-  height: 15px;
-  line-height: 15px;
+  padding: 1px 8px;
   border-radius: 99px;
   white-space: nowrap;
 }
@@ -148,7 +145,7 @@ const accentClass = computed(() => {
 .badge--blue   { background: #dbeafe; color: #2563eb; }
 .badge--gray   { background: #f1f5f9; color: #94a3b8; }
 
-.drop-enter-active, .drop-leave-active { transition: all 0.12s ease; overflow: hidden; }
+.drop-enter-active, .drop-leave-active { transition: all 0.15s ease; overflow: hidden; }
 .drop-enter-from, .drop-leave-to  { opacity: 0; max-height: 0; }
 .drop-enter-to,   .drop-leave-from { opacity: 1; max-height: 400px; }
 </style>
