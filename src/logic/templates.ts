@@ -47,7 +47,7 @@ export const templates: MessageTemplate[] = [
   {
     id: 'guid-1c',
     label: 'Выделение GUID 1С',
-    requiredFields: ['name', 'gateId', 'guid1c', 'salesChannel1cbu', 'salesChannelReports'],
+    requiredFields: ['name', 'gateId', 'guid1c'],
     buildTitle: (agent) => `${agent.name} — выделение GUID 1С`,
     buildBody: (agent) =>
       `Коллеги, добрый день!\n` +
@@ -55,8 +55,8 @@ export const templates: MessageTemplate[] = [
       `Наименование агента: ${agent.name}\n` +
       `GATE ID: ${agent.gateId}\n` +
       `GUID 1C: ${agent.guid1c}\n` +
-      `Канал продаж для 1СБУ: ${agent.salesChannel1cbu}\n` +
-      `Канал продаж для отчетов: ${agent.salesChannelReports}\n\n` +
+      `Канал продаж для 1СБУ: Розница\n` +
+      `Канал продаж для отчетов: Точка продаж\n\n` +
       `Спасибо!`,
   },
 ]
