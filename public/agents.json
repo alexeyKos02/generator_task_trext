@@ -11,7 +11,12 @@
       31954659,
       31954660,
       31954816
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Матанов Сергей Юрьевич",
@@ -21,7 +26,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954552
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Грущенко Лариса Петровна",
@@ -31,7 +41,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954553
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": "на стопе",
+    "problemTerminals": []
   },
   {
     "name": "ИП Коротков Александр Валентинович",
@@ -44,7 +59,12 @@
       31954555,
       31954556,
       31954557
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Игнатьева Мария Александровна",
@@ -55,7 +75,12 @@
     "terminalIds": [
       31954558,
       31954559
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Тимина Ольга Вадимовна",
@@ -74,7 +99,12 @@
       31954567,
       31954568,
       31954866
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Занов Игорь Олегович",
@@ -90,7 +120,12 @@
       31954573,
       31954574,
       31954575
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": "на стопе",
+    "problemTerminals": []
   },
   {
     "name": "ООО \"СКАТ\"",
@@ -117,7 +152,12 @@
       31954591,
       31954592,
       31954593
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": "на стопе",
+    "problemTerminals": []
   },
   {
     "name": "ИП Ермолаев Денис Викторович",
@@ -132,7 +172,12 @@
       31954597,
       31954598,
       31954599
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО «Связь-Информтел»",
@@ -143,7 +188,12 @@
     "terminalIds": [
       31954600,
       31954601
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Рупасов Андрей Викторович",
@@ -153,7 +203,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954602
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"Редсим\"",
@@ -179,7 +234,12 @@
       31954617,
       31954618,
       31954619
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Набиев Михаил Салманович",
@@ -203,7 +263,12 @@
       31954632,
       31954633,
       31954874
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Жуков Александр Иванович",
@@ -220,7 +285,12 @@
       31954639,
       31954818,
       31954857
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Урманов Владимир Анатольевич",
@@ -236,7 +306,12 @@
       31954644,
       31954645,
       31954646
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"Петропарк\"",
@@ -247,7 +322,12 @@
     "terminalIds": [
       31954647,
       31954648
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Купин Максим Сергеевич",
@@ -263,7 +343,12 @@
       31954653,
       31954654,
       31954655
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Мишкин Александр Викторович",
@@ -273,6 +358,16 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954656
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": "заблокирован",
+    "problemTerminals": [
+      {
+        "id": 31954656,
+        "status": "заблокирован"
+      }
     ]
   },
   {
@@ -283,7 +378,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954661
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Чмырев Алексей Леонидович",
@@ -314,6 +414,16 @@
       31954817,
       31954819,
       31954873
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954873,
+        "status": "без игр"
+      }
     ]
   },
   {
@@ -324,7 +434,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954681
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"Сити-Экспресс\"",
@@ -342,7 +457,12 @@
       31954688,
       31954689,
       31954690
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"Маркет-Мобайл\"",
@@ -354,7 +474,12 @@
       31954691,
       31954692,
       31954693
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Хиль Полина Александровна",
@@ -365,7 +490,12 @@
     "terminalIds": [
       31954694,
       31954695
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО Якутск.Телефон.Ру",
@@ -413,6 +543,16 @@
       31954854,
       31954855,
       31954856
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954851,
+        "status": "другое"
+      }
     ]
   },
   {
@@ -425,7 +565,12 @@
       31954714,
       31954715,
       31954716
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"Сота Центр\"",
@@ -479,6 +624,20 @@
       31954858,
       31954870,
       31954871
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954722,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954858,
+        "status": "другое"
+      }
     ]
   },
   {
@@ -497,7 +656,12 @@
       31954759,
       31954760,
       31954834
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Столяров Андрей Викторович",
@@ -507,7 +671,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954761
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"Мос-Сим\"",
@@ -520,7 +689,12 @@
       31954763,
       31954764,
       31954765
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Макаренко Кирилл Валентинович",
@@ -544,6 +718,72 @@
       31954778,
       31954779,
       31954785
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954766,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954767,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954768,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954769,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954770,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954771,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954772,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954773,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954774,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954775,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954776,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954777,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954778,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954779,
+        "status": "заблокирован"
+      },
+      {
+        "id": 31954785,
+        "status": "заблокирован"
+      }
     ]
   },
   {
@@ -554,7 +794,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954786
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Архангельский Дмитрий Борисович",
@@ -566,7 +811,12 @@
       31954787,
       31954788,
       31954789
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"ОН-СМАРТ\"",
@@ -581,7 +831,12 @@
       31954793,
       31954794,
       31954795
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Сотиев Вадим Олегович",
@@ -591,7 +846,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954796
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Васильев Валерий Викторович",
@@ -602,7 +862,12 @@
     "terminalIds": [
       31954797,
       31954798
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": true,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Акопян Гамлет Сережаевич",
@@ -614,7 +879,12 @@
       31954799,
       31954800,
       31954801
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Шамиданова Кира Викторовна",
@@ -626,7 +896,12 @@
       31954802,
       31954803,
       31954804
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Черных Денис Александрович",
@@ -645,7 +920,12 @@
       31954812,
       31954821,
       31954822
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Соловьева Людмила Александровна",
@@ -657,7 +937,12 @@
       31954813,
       31954814,
       31954815
-    ]
+    ],
+    "certAdded": true,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Яшкина Людмила Ионовна",
@@ -667,7 +952,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954820
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО \"Сфера Связи\"",
@@ -677,7 +967,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954823
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Зайдуллин Ренат Азатович",
@@ -687,7 +982,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954829
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Румянцев Даниил Вячеславович",
@@ -700,7 +1000,12 @@
       31954831,
       31954832,
       31954833
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Набиев Джамиль Карим оглы",
@@ -710,7 +1015,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954859
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Аветисян Регина Ринатовна",
@@ -720,7 +1030,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954860
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Дементьева Людмила Василовна",
@@ -730,7 +1045,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954861
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Капитальная Татьяна Владимировна",
@@ -740,7 +1060,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954862
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Нуриева Наталья Игорьевна",
@@ -750,7 +1075,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954863
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Куклин Роман",
@@ -760,7 +1090,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954864
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Миассарова Гузель",
@@ -770,7 +1105,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954865
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ООО МОБИЛЬНЫЙ РИТЕЙЛ",
@@ -780,7 +1120,12 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954867
-    ]
+    ],
+    "certAdded": false,
+    "certMtsAdded": true,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": []
   },
   {
     "name": "ИП Заколюкин Александр Борисович",
@@ -791,6 +1136,20 @@
     "terminalIds": [
       31954868,
       31954869
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954868,
+        "status": "без игр"
+      },
+      {
+        "id": 31954869,
+        "status": "без игр"
+      }
     ]
   },
   {
@@ -801,6 +1160,16 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954872
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954872,
+        "status": "без игр"
+      }
     ]
   },
   {
@@ -811,6 +1180,16 @@
     "salesChannelReports": "",
     "terminalIds": [
       31954875
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954875,
+        "status": "без игр"
+      }
     ]
   }
 ]

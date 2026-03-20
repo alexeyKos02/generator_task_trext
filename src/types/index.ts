@@ -1,3 +1,8 @@
+export interface ProblemTerminal {
+  id: number
+  status: 'заблокирован' | 'без игр' | 'другое' | string
+}
+
 export interface Agent {
   name: string
   gateId: number | null
@@ -5,6 +10,13 @@ export interface Agent {
   salesChannel1cbu: string
   salesChannelReports: string
   terminalIds: number[]
+  // Флаги из листа СВОДНАЯ
+  certAdded: boolean
+  certMtsAdded: boolean
+  ticketsSelling: boolean
+  comment: string | null
+  // Терминалы с нестандартным статусом (не «добавлен»)
+  problemTerminals: ProblemTerminal[]
 }
 
 export interface MessageTemplate {

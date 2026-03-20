@@ -21,7 +21,11 @@
         Не удалось загрузить данные. <button class="retry-btn" @click="loadAgents">Повторить</button>
       </div>
 
-      <div v-else class="layout">
+      <div v-else class="layout-wrapper">
+        <!-- Панель напоминаний -->
+        <RemindersPanel :agents="agents" />
+
+        <div class="layout">
         <!-- Левая панель: форма -->
         <aside class="layout__sidebar">
           <SearchForm
@@ -79,7 +83,8 @@
             />
           </Transition>
         </section>
-      </div>
+        </div><!-- /.layout -->
+      </div><!-- /.layout-wrapper -->
     </main>
 
     <footer class="app-footer">
@@ -96,6 +101,7 @@ import SearchForm from './components/SearchForm.vue'
 import MultipleResults from './components/MultipleResults.vue'
 import ResultBlock from './components/ResultBlock.vue'
 import ErrorBlock from './components/ErrorBlock.vue'
+import RemindersPanel from './components/RemindersPanel.vue'
 
 import { templates } from './logic/templates'
 import { searchAgents } from './logic/search'
@@ -257,13 +263,17 @@ function resetError() {
   flex-shrink: 0;
 }
 
-.layout {
+.layout-wrapper {
   max-width: 1080px;
   margin: 0 auto;
+}
+
+.layout {
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 24px;
   align-items: start;
+  margin: 0;
 }
 
 .layout__sidebar {
