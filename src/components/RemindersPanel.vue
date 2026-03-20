@@ -1,6 +1,5 @@
 <template>
   <div class="reminders">
-    <!-- Заголовок с кнопкой сворачивания -->
     <button class="reminders__header" @click="collapsed = !collapsed">
       <div class="reminders__title-row">
         <span class="reminders__icon">🔔</span>
@@ -19,42 +18,17 @@
 
     <Transition name="slide">
       <div v-if="!collapsed" class="reminders__body">
-        <!-- Пусто -->
         <div v-if="totalCount === 0" class="reminders__empty">
-          Все агенты и терминалы в порядке 🎉
+          Все терминалы в порядке 🎉
         </div>
 
         <template v-else>
-          <!-- Группа: Нет сертификата Столото -->
           <ReminderGroup
-            v-if="groups.noCert.length"
-            label="Нет сертификата (Столото)"
-            color="red"
-            :items="groups.noCert"
-          />
-
-          <!-- Группа: Нет сертификата МТС -->
-          <ReminderGroup
-            v-if="groups.noCertMts.length"
-            label="Нет сертификата (МТС)"
-            color="orange"
-            :items="groups.noCertMts"
-          />
-
-          <!-- Группа: Без игр -->
-          <ReminderGroup
-            v-if="groups.noGames.length"
-            label="Нет игр на терминале"
-            color="orange"
-            :items="groups.noGames"
-          />
-
-          <!-- Группа: Другое -->
-          <ReminderGroup
-            v-if="groups.other.length"
-            label="Другое"
-            color="gray"
-            :items="groups.other"
+            v-for="group in activeGroups"
+            :key="group.id"
+            :label="group.label"
+            :color="group.color"
+            :items="group.items"
           />
         </template>
       </div>
@@ -71,25 +45,63 @@ const props = defineProps<{ agents: Agent[] }>()
 
 const collapsed = ref(false)
 
-// ─── Группируем агентов по типу проблемы ─────────────────────────────────────
+// ─── Конфиг групп — порядок и внешний вид ────────────────────────────────────
+const GROUP_CONFIG: Record<string, { label: string; color: 'red' | 'orange' | 'yellow' | 'gray' }> = {
+  'не добавлен':                      { label: 'Не добавлен',                    color: 'red'    },
+  'ожидает GUID':                     { label: 'Ожидает GUID',                   color: 'yellow' },
+  'ожидает добавления сертификата':   { label: 'Ожидает добавления сертификата', color: 'orange' },
+  'ожидает добавления с сертификат':  { label: 'Ожидает добавления сертификата', color: 'orange' },
+  'добавлен без сертификата':         { label: 'Добавлен без сертификата',       color: 'orange' },
+  'без игр':                          { label: 'Без игр',                        color: 'orange' },
+  'другое':                           { label: 'Другое',                         color: 'gray'   },
+}
+
+const GROUP_ORDER = [
+  'не добавлен',
+  'ожидает GUID',
+  'ожидает добавления сертификата',
+  'ожидает добавления с сертификат',
+  'добавлен без сертификата',
+  'без игр',
+  'другое',
+]
+
+// ─── Собираем элементы по группам ────────────────────────────────────────────
 const groups = computed(() => {
-  const noCert: string[]    = []
-  const noCertMts: string[] = []
-  const noGames: string[]   = []
-  const other: string[]     = []
+  const map: Record<string, string[]> = {}
 
   for (const a of props.agents) {
-    if (!a.certAdded)    noCert.push(a.name)
-    if (!a.certMtsAdded) noCertMts.push(a.name)
-
     for (const t of a.problemTerminals) {
-      const label = `${a.name} — терминал ${t.id}`
-      if (t.status === 'без игр') noGames.push(label)
-      else if (t.status !== 'заблокирован') other.push(`${label} (${t.status})`)
+      const key = t.status.toLowerCase().trim()
+      if (!map[key]) map[key] = []
+      map[key].push(`${a.name} — терминал ${t.id}`)
     }
   }
 
-  return { noCert, noCertMts, noGames, other }
+  return map
+})
+
+// Активные группы в нужном порядке
+const activeGroups = computed(() => {
+  const result: { id: string; label: string; color: 'red' | 'orange' | 'yellow' | 'gray'; items: string[] }[] = []
+
+  // Сначала известные статусы в заданном порядке
+  for (const key of GROUP_ORDER) {
+    const items = groups.value[key]
+    if (items?.length) {
+      const cfg = GROUP_CONFIG[key]
+      result.push({ id: key, label: cfg.label, color: cfg.color, items })
+    }
+  }
+
+  // Потом неизвестные статусы (на случай новых)
+  for (const [key, items] of Object.entries(groups.value)) {
+    if (!GROUP_ORDER.includes(key) && items.length) {
+      result.push({ id: key, label: key, color: 'gray', items })
+    }
+  }
+
+  return result
 })
 
 const totalCount = computed(() =>
@@ -182,7 +194,6 @@ const totalCount = computed(() =>
   padding: 8px 0;
 }
 
-/* Transition */
 .slide-enter-active,
 .slide-leave-active {
   transition: all 0.2s ease;
@@ -198,6 +209,6 @@ const totalCount = computed(() =>
 .slide-enter-to,
 .slide-leave-from {
   opacity: 1;
-  max-height: 1000px;
+  max-height: 2000px;
 }
 </style>

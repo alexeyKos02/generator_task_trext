@@ -22,8 +22,8 @@ from pathlib import Path
 YANDEX_DISK_PUBLIC_URL = "https://disk.yandex.ru/i/Btt9AO4fER4ilg"
 OUTPUT_PATH = Path(__file__).parent.parent / "public" / "agents.json"
 
-# Терминалы с этим статусом считаются «добавленными» и не попадают в проблемные
-OK_STATUS = "добавлен"
+# Терминалы с этими статусами не попадают в панель напоминаний
+SKIP_STATUSES = {"добавлен", "заблокирован"}
 
 # ─── Получаем прямую ссылку на скачивание через API Яндекс.Диска ─────────────
 def get_download_url(public_url: str) -> str:
@@ -112,9 +112,9 @@ def parse_excel(path: Path) -> list[dict]:
             if tid not in agents[gate_id]["terminalIds"]:
                 agents[gate_id]["terminalIds"].append(tid)
 
-            # Добавляем в проблемные если статус не «добавлен»
+            # Добавляем в проблемные если статус не в списке пропускаемых
             status_str = str(status).strip() if status else ""
-            if status_str and status_str != OK_STATUS:
+            if status_str and status_str not in SKIP_STATUSES:
                 # Не дублируем
                 existing_ids = [p["id"] for p in agents[gate_id]["problemTerminals"]]
                 if tid not in existing_ids:
