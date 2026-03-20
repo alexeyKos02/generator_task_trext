@@ -64,7 +64,7 @@ const problemAgents = computed(() =>
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 10px 14px;
   background: none;
   border: none;
   cursor: pointer;

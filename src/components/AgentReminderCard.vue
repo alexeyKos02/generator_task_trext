@@ -1,18 +1,12 @@
 <template>
   <div class="card">
     <button class="card__row" @click="open = !open">
-      <div class="card__left">
-        <span class="card__accent" :class="accentClass"></span>
-        <svg class="card__chevron" :class="{ 'open': open }"
-          width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="card__name">{{ agent.name }}</span>
-      </div>
-      <span class="card__pill" :class="accentClass">
-        {{ agent.problemTerminals.length }}
-      </span>
+      <span class="card__accent" :class="accentClass" />
+      <svg class="card__chevron" :class="{ open }" width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <path d="M3 2l4 3-4 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="card__name">{{ agent.name }}</span>
+      <span class="card__pill" :class="accentClass">{{ agent.problemTerminals.length }}</span>
     </button>
 
     <Transition name="drop">
@@ -43,7 +37,6 @@ function badgeClass(status: string) {
   return 'badge--gray'
 }
 
-// Цвет акцента = самый «тяжёлый» статус среди терминалов агента
 const accentClass = computed(() => {
   const classes = props.agent.problemTerminals.map(t => badgeClass(t.status))
   if (classes.includes('badge--red'))    return 'accent--red'
@@ -60,67 +53,57 @@ const accentClass = computed(() => {
 }
 .card:last-child { border-bottom: none; }
 
-/* Строка агента */
 .card__row {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 7px 14px 7px 0;
+  gap: 8px;
+  padding: 6px 14px;
   background: none;
   border: none;
   cursor: pointer;
-  gap: 10px;
-  transition: background 0.12s;
+  transition: background 0.1s;
 }
 .card__row:hover { background: #f8fafc; }
 
-.card__left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  flex: 1;
-}
-
-/* Цветная полоска слева */
 .card__accent {
   display: block;
   width: 3px;
-  height: 20px;
-  border-radius: 99px;
+  height: 16px;
+  border-radius: 2px;
   flex-shrink: 0;
 }
-.accent--red    .card__accent, .card__accent.accent--red    { background: #ef4444; }
-.accent--orange .card__accent, .card__accent.accent--orange { background: #f97316; }
-.accent--yellow .card__accent, .card__accent.accent--yellow { background: #eab308; }
-.accent--blue   .card__accent, .card__accent.accent--blue   { background: #3b82f6; }
-.accent--gray   .card__accent, .card__accent.accent--gray   { background: #d1d5db; }
+.accent--red    { background: #ef4444; }
+.accent--orange { background: #f97316; }
+.accent--yellow { background: #eab308; }
+.accent--blue   { background: #3b82f6; }
+.accent--gray   { background: #d1d5db; }
 
 .card__chevron {
   flex-shrink: 0;
   color: #cbd5e1;
-  transition: transform 0.18s;
+  transition: transform 0.15s;
 }
 .card__chevron.open { transform: rotate(90deg); }
 
 .card__name {
-  font-size: 13px;
+  flex: 1;
+  font-size: 12.5px;
   font-weight: 500;
   color: #1e293b;
-  white-space: nowrap;
+  text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Пилюля-счётчик */
 .card__pill {
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
-  padding: 1px 8px;
+  padding: 1px 7px;
   border-radius: 99px;
-  min-width: 22px;
+  min-width: 20px;
   text-align: center;
 }
 .card__pill.accent--red    { background: #fee2e2; color: #dc2626; }
@@ -129,32 +112,31 @@ const accentClass = computed(() => {
 .card__pill.accent--blue   { background: #dbeafe; color: #2563eb; }
 .card__pill.accent--gray   { background: #f1f5f9; color: #94a3b8; }
 
-/* Список терминалов */
+/* Терминалы */
 .card__body {
-  padding: 2px 14px 8px 25px;
+  padding: 2px 14px 6px 37px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .card__terminal {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3px 0;
+  padding: 2px 0;
 }
 
 .card__id {
-  font-size: 12px;
-  color: #64748b;
-  font-family: ui-monospace, 'SF Mono', monospace;
-  letter-spacing: 0.01em;
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-family: ui-monospace, monospace;
 }
 
 .card__badge {
   font-size: 10px;
   font-weight: 600;
-  padding: 2px 9px;
+  padding: 1px 8px;
   border-radius: 99px;
   white-space: nowrap;
 }
@@ -164,11 +146,7 @@ const accentClass = computed(() => {
 .badge--blue   { background: #dbeafe; color: #2563eb; }
 .badge--gray   { background: #f1f5f9; color: #94a3b8; }
 
-/* Анимация */
-.drop-enter-active, .drop-leave-active {
-  transition: all 0.18s ease;
-  overflow: hidden;
-}
+.drop-enter-active, .drop-leave-active { transition: all 0.15s ease; overflow: hidden; }
 .drop-enter-from, .drop-leave-to  { opacity: 0; max-height: 0; }
 .drop-enter-to,   .drop-leave-from { opacity: 1; max-height: 400px; }
 </style>
