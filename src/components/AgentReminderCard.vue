@@ -48,28 +48,26 @@ const accentClass = computed(() => {
 </script>
 
 <style scoped>
-.card {
-  border-bottom: 1px solid #f1f5f9;
-}
-.card:last-child { border-bottom: none; }
+.card {}
 
 .card__row {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
+  gap: 6px;
+  padding: 3px 12px;
   background: none;
   border: none;
   cursor: pointer;
   transition: background 0.1s;
+  min-height: 26px;
 }
-.card__row:hover { background: #f8fafc; }
+.card__row:hover { background: #f1f5f9; }
 
 .card__accent {
   display: block;
   width: 3px;
-  height: 16px;
+  height: 12px;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -88,9 +86,9 @@ const accentClass = computed(() => {
 
 .card__name {
   flex: 1;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
-  color: #1e293b;
+  color: #374151;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -99,11 +97,13 @@ const accentClass = computed(() => {
 
 .card__pill {
   flex-shrink: 0;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 1px 7px;
+  padding: 0 6px;
   border-radius: 99px;
-  min-width: 20px;
+  min-width: 18px;
+  height: 16px;
+  line-height: 16px;
   text-align: center;
 }
 .card__pill.accent--red    { background: #fee2e2; color: #dc2626; }
@@ -114,29 +114,31 @@ const accentClass = computed(() => {
 
 /* Терминалы */
 .card__body {
-  padding: 2px 14px 6px 37px;
+  padding: 0 12px 3px 33px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .card__terminal {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2px 0;
+  padding: 1px 0;
 }
 
 .card__id {
-  font-size: 11.5px;
-  color: #94a3b8;
+  font-size: 11px;
+  color: #9ca3af;
   font-family: ui-monospace, monospace;
 }
 
 .card__badge {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
-  padding: 1px 8px;
+  padding: 0 7px;
+  height: 15px;
+  line-height: 15px;
   border-radius: 99px;
   white-space: nowrap;
 }
@@ -146,7 +148,7 @@ const accentClass = computed(() => {
 .badge--blue   { background: #dbeafe; color: #2563eb; }
 .badge--gray   { background: #f1f5f9; color: #94a3b8; }
 
-.drop-enter-active, .drop-leave-active { transition: all 0.15s ease; overflow: hidden; }
+.drop-enter-active, .drop-leave-active { transition: all 0.12s ease; overflow: hidden; }
 .drop-enter-from, .drop-leave-to  { opacity: 0; max-height: 0; }
 .drop-enter-to,   .drop-leave-from { opacity: 1; max-height: 400px; }
 </style>

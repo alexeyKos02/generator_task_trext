@@ -64,7 +64,7 @@ const problemAgents = computed(() =>
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
+  padding: 8px 14px;
   background: none;
   border: none;
   cursor: pointer;
@@ -120,9 +120,10 @@ const problemAgents = computed(() =>
 
 .reminders__body {
   border-top: 1px solid #e5e7eb;
-  padding: 0;
+  padding: 4px 0;
   display: flex;
   flex-direction: column;
+  background: #f8fafc;
 }
 
 .reminders__empty {
