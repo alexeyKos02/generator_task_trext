@@ -41,30 +41,6 @@
             :items="groups.noCertMts"
           />
 
-          <!-- Группа: Билеты не продаются -->
-          <ReminderGroup
-            v-if="groups.noTickets.length"
-            label="Билеты не продаются"
-            color="yellow"
-            :items="groups.noTickets"
-          />
-
-          <!-- Группа: На стопе / комментарий -->
-          <ReminderGroup
-            v-if="groups.stopped.length"
-            label="На стопе"
-            color="gray"
-            :items="groups.stopped"
-          />
-
-          <!-- Группа: Заблокированные терминалы -->
-          <ReminderGroup
-            v-if="groups.blocked.length"
-            label="Заблокированные терминалы"
-            color="red"
-            :items="groups.blocked"
-          />
-
           <!-- Группа: Без игр -->
           <ReminderGroup
             v-if="groups.noGames.length"
@@ -99,27 +75,21 @@ const collapsed = ref(false)
 const groups = computed(() => {
   const noCert: string[]    = []
   const noCertMts: string[] = []
-  const noTickets: string[] = []
-  const stopped: string[]   = []
-  const blocked: string[]   = []
   const noGames: string[]   = []
   const other: string[]     = []
 
   for (const a of props.agents) {
     if (!a.certAdded)    noCert.push(a.name)
     if (!a.certMtsAdded) noCertMts.push(a.name)
-    if (!a.ticketsSelling) noTickets.push(a.name)
-    if (a.comment)       stopped.push(`${a.name} — ${a.comment}`)
 
     for (const t of a.problemTerminals) {
       const label = `${a.name} — терминал ${t.id}`
-      if (t.status === 'заблокирован') blocked.push(label)
-      else if (t.status === 'без игр') noGames.push(label)
-      else other.push(`${label} (${t.status})`)
+      if (t.status === 'без игр') noGames.push(label)
+      else if (t.status !== 'заблокирован') other.push(`${label} (${t.status})`)
     }
   }
 
-  return { noCert, noCertMts, noTickets, stopped, blocked, noGames, other }
+  return { noCert, noCertMts, noGames, other }
 })
 
 const totalCount = computed(() =>
