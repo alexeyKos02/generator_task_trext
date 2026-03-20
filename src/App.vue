@@ -18,41 +18,45 @@
 
         <!-- Правая панель: результат -->
         <section class="layout__content">
-          <!-- Пустое состояние -->
-          <div v-if="state === 'idle'" class="empty-state">
-            <div class="empty-state__icon">
-              <svg width="48" height="48" fill="none" viewBox="0 0 24 24">
-                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <Transition name="fade" mode="out-in">
+            <!-- Пустое состояние -->
+            <div v-if="state === 'idle'" key="idle" class="empty-state">
+              <div class="empty-state__icon">
+                <svg width="48" height="48" fill="none" viewBox="0 0 24 24">
+                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="empty-state__title">Результат появится здесь</p>
+              <p class="empty-state__text">
+                Выберите тип сообщения, введите название ЮЛ / агента и нажмите «Сгенерировать»
+              </p>
             </div>
-            <p class="empty-state__title">Результат появится здесь</p>
-            <p class="empty-state__text">
-              Выберите тип сообщения, введите название ЮЛ / агента и нажмите «Сгенерировать»
-            </p>
-          </div>
 
-          <!-- Несколько совпадений -->
-          <MultipleResults
-            v-else-if="state === 'multiple'"
-            :agents="foundAgents"
-            @select="handleSelectAgent"
-          />
+            <!-- Несколько совпадений -->
+            <MultipleResults
+              v-else-if="state === 'multiple'"
+              key="multiple"
+              :agents="foundAgents"
+              @select="handleSelectAgent"
+            />
 
-          <!-- Ошибка -->
-          <template v-else-if="state === 'error'">
+            <!-- Ошибка -->
             <ErrorBlock
+              v-else-if="state === 'error'"
+              key="error"
               :title="errorTitle"
               :detail="errorDetail"
               :items="errorItems"
             />
-          </template>
 
-          <!-- Результат -->
-          <ResultBlock
-            v-else-if="state === 'result' && generatedMessage"
-            :message="generatedMessage"
-          />
+            <!-- Результат -->
+            <ResultBlock
+              v-else-if="state === 'result' && generatedMessage"
+              key="result"
+              :message="generatedMessage"
+            />
+          </Transition>
         </section>
       </div>
     </main>

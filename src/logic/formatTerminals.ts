@@ -33,9 +33,17 @@ export function formatTerminalIds(ids: number[]): string {
 }
 
 /**
- * Возвращает правильную форму слова «терминал» в зависимости от количества.
+ * Возвращает правильную форму слова «терминал» по правилам русского языка.
+ * 1        → "терминал"
+ * 2–4      → "терминала"
+ * 5+, 11–14 → "терминалов"
  */
 export function terminalWord(count: number): string {
-  if (count === 1) return 'терминал'
-  return 'терминалы'
+  const mod100 = count % 100
+  const mod10 = count % 10
+
+  if (mod100 >= 11 && mod100 <= 14) return 'терминалов'
+  if (mod10 === 1) return 'терминал'
+  if (mod10 >= 2 && mod10 <= 4) return 'терминала'
+  return 'терминалов'
 }

@@ -21,7 +21,7 @@
 }
 
 .app-header__inner {
-  max-width: 720px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 20px 0;
   display: flex;
