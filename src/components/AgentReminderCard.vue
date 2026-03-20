@@ -61,7 +61,7 @@ function badgeClass(status: string): string {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
+  padding: 6px 10px;
   background: none;
   border: none;
   cursor: pointer;
@@ -91,7 +91,7 @@ function badgeClass(status: string): string {
 }
 
 .card__name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   color: #111827;
   white-space: nowrap;
@@ -121,7 +121,7 @@ function badgeClass(status: string): string {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 14px;
+  padding: 5px 10px;
   gap: 12px;
   border-bottom: 1px solid #f3f4f6;
 }
@@ -131,7 +131,7 @@ function badgeClass(status: string): string {
 }
 
 .card__terminal-id {
-  font-size: 13px;
+  font-size: 12px;
   color: #374151;
   font-variant-numeric: tabular-nums;
   font-family: ui-monospace, monospace;
@@ -140,9 +140,9 @@ function badgeClass(status: string): string {
 /* Бейджи статусов */
 .card__badge {
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
-  padding: 2px 10px;
+  padding: 1px 8px;
   border-radius: 99px;
   white-space: nowrap;
 }
