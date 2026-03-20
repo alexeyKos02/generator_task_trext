@@ -1,34 +1,39 @@
 <template>
-  <div class="card" :class="{ 'card--open': open }">
-    <button class="card__header" @click="open = !open">
-      <svg class="card__chevron" :class="{ 'card__chevron--open': open }"
-        width="12" height="12" fill="none" viewBox="0 0 24 24">
-        <path d="M9 18l6-6-6-6" stroke="#9ca3af" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span class="card__name">{{ agent.name }}</span>
-      <span class="card__count">{{ agent.problemTerminals.length }}</span>
+  <div class="card">
+    <button class="card__row" @click="open = !open">
+      <div class="card__left">
+        <span class="card__accent" :class="accentClass"></span>
+        <svg class="card__chevron" :class="{ 'open': open }"
+          width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="card__name">{{ agent.name }}</span>
+      </div>
+      <span class="card__pill" :class="accentClass">
+        {{ agent.problemTerminals.length }}
+      </span>
     </button>
 
-    <Transition name="expand">
-      <ul v-if="open" class="card__list">
-        <li v-for="t in agent.problemTerminals" :key="t.id" class="card__item">
-          <span class="card__terminal-id">{{ t.id }}</span>
+    <Transition name="drop">
+      <div v-if="open" class="card__body">
+        <div v-for="t in agent.problemTerminals" :key="t.id" class="card__terminal">
+          <span class="card__id">{{ t.id }}</span>
           <span class="card__badge" :class="badgeClass(t.status)">{{ t.status }}</span>
-        </li>
-      </ul>
+        </div>
+      </div>
     </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { Agent } from '../types'
 
-defineProps<{ agent: Agent }>()
+const props = defineProps<{ agent: Agent }>()
 const open = ref(false)
 
-function badgeClass(status: string): string {
+function badgeClass(status: string) {
   const s = status.toLowerCase().trim()
   if (s === 'не добавлен')                return 'badge--red'
   if (s === 'ожидает guid')               return 'badge--yellow'
@@ -37,113 +42,133 @@ function badgeClass(status: string): string {
   if (s === 'без игр')                    return 'badge--blue'
   return 'badge--gray'
 }
+
+// Цвет акцента = самый «тяжёлый» статус среди терминалов агента
+const accentClass = computed(() => {
+  const classes = props.agent.problemTerminals.map(t => badgeClass(t.status))
+  if (classes.includes('badge--red'))    return 'accent--red'
+  if (classes.includes('badge--orange')) return 'accent--orange'
+  if (classes.includes('badge--yellow')) return 'accent--yellow'
+  if (classes.includes('badge--blue'))   return 'accent--blue'
+  return 'accent--gray'
+})
 </script>
 
 <style scoped>
 .card {
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f1f5f9;
 }
+.card:last-child { border-bottom: none; }
 
-.card:last-child {
-  border-bottom: none;
-}
-
-.card--open {
-  background: #fafafa;
-}
-
-.card__header {
+/* Строка агента */
+.card__row {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 8px 16px;
+  justify-content: space-between;
+  padding: 7px 14px 7px 0;
   background: none;
   border: none;
   cursor: pointer;
-  text-align: left;
-  gap: 7px;
+  gap: 10px;
   transition: background 0.12s;
 }
+.card__row:hover { background: #f8fafc; }
 
-.card__header:hover {
-  background: #f3f4f6;
+.card__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
 }
+
+/* Цветная полоска слева */
+.card__accent {
+  display: block;
+  width: 3px;
+  height: 20px;
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+.accent--red    .card__accent, .card__accent.accent--red    { background: #ef4444; }
+.accent--orange .card__accent, .card__accent.accent--orange { background: #f97316; }
+.accent--yellow .card__accent, .card__accent.accent--yellow { background: #eab308; }
+.accent--blue   .card__accent, .card__accent.accent--blue   { background: #3b82f6; }
+.accent--gray   .card__accent, .card__accent.accent--gray   { background: #d1d5db; }
 
 .card__chevron {
   flex-shrink: 0;
+  color: #cbd5e1;
   transition: transform 0.18s;
-  color: #9ca3af;
 }
-
-.card__chevron--open {
-  transform: rotate(90deg);
-}
+.card__chevron.open { transform: rotate(90deg); }
 
 .card__name {
-  flex: 1;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
-  color: #1f2937;
+  color: #1e293b;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.card__count {
+/* Пилюля-счётчик */
+.card__pill {
   flex-shrink: 0;
   font-size: 11px;
-  font-weight: 600;
-  color: #9ca3af;
-  background: #f3f4f6;
+  font-weight: 700;
+  padding: 1px 8px;
   border-radius: 99px;
-  padding: 1px 7px;
-  min-width: 20px;
+  min-width: 22px;
   text-align: center;
 }
+.card__pill.accent--red    { background: #fee2e2; color: #dc2626; }
+.card__pill.accent--orange { background: #ffedd5; color: #ea580c; }
+.card__pill.accent--yellow { background: #fef9c3; color: #ca8a04; }
+.card__pill.accent--blue   { background: #dbeafe; color: #2563eb; }
+.card__pill.accent--gray   { background: #f1f5f9; color: #94a3b8; }
 
 /* Список терминалов */
-.card__list {
-  list-style: none;
-  margin: 0;
-  padding: 2px 0 6px 35px;
+.card__body {
+  padding: 2px 14px 8px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.card__item {
+.card__terminal {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3px 16px 3px 0;
-  gap: 12px;
+  padding: 3px 0;
 }
 
-.card__terminal-id {
+.card__id {
   font-size: 12px;
-  color: #6b7280;
-  font-variant-numeric: tabular-nums;
-  font-family: ui-monospace, monospace;
+  color: #64748b;
+  font-family: ui-monospace, 'SF Mono', monospace;
+  letter-spacing: 0.01em;
 }
 
 .card__badge {
-  flex-shrink: 0;
   font-size: 10px;
   font-weight: 600;
-  padding: 1px 8px;
+  padding: 2px 9px;
   border-radius: 99px;
   white-space: nowrap;
 }
-
 .badge--red    { background: #fee2e2; color: #dc2626; }
 .badge--orange { background: #ffedd5; color: #ea580c; }
 .badge--yellow { background: #fef9c3; color: #ca8a04; }
 .badge--blue   { background: #dbeafe; color: #2563eb; }
-.badge--gray   { background: #f3f4f6; color: #6b7280; }
+.badge--gray   { background: #f1f5f9; color: #94a3b8; }
 
 /* Анимация */
-.expand-enter-active,
-.expand-leave-active {
+.drop-enter-active, .drop-leave-active {
   transition: all 0.18s ease;
   overflow: hidden;
 }
-.expand-enter-from, .expand-leave-to  { opacity: 0; max-height: 0; }
-.expand-enter-to,   .expand-leave-from { opacity: 1; max-height: 500px; }
+.drop-enter-from, .drop-leave-to  { opacity: 0; max-height: 0; }
+.drop-enter-to,   .drop-leave-from { opacity: 1; max-height: 400px; }
 </style>
