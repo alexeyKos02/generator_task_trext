@@ -1,6 +1,11 @@
 name: Sync agents data from Yandex Disk
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/sync_agents.py'
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
