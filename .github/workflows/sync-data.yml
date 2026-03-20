@@ -1,15 +1,13 @@
 name: Sync agents data from Yandex Disk
 
 on:
-  # Каждые 30 минут
   schedule:
     - cron: '*/30 * * * *'
-  # Ручной запуск из вкладки Actions
   workflow_dispatch:
 
 jobs:
   sync:
-    name: Sync & deploy
+    name: Sync agents.json
     runs-on: ubuntu-latest
 
     permissions:
@@ -27,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: pip install openpyxl
 
-      - name: Sync agents.json from Yandex Disk
+      - name: Run sync script
         run: python3 scripts/sync_agents.py
 
       - name: Check if agents.json changed
@@ -39,10 +37,10 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Commit and push updated agents.json
+      - name: Commit and push
         if: steps.diff.outputs.changed == 'true'
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/agents.json
           git commit -m "data: auto-sync agents from Yandex Disk [skip ci]"
