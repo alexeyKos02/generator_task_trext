@@ -3,7 +3,25 @@
     <AppHeader />
 
     <main class="app__main">
-      <div class="layout">
+      <!-- Загрузка данных -->
+      <div v-if="dataState === 'loading'" class="data-status data-status--loading">
+        <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#d1d5db" stroke-width="2.5"/>
+          <path d="M12 2a10 10 0 0 1 10 10" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        Загрузка данных…
+      </div>
+
+      <!-- Ошибка загрузки данных -->
+      <div v-else-if="dataState === 'error'" class="data-status data-status--error">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2"/>
+          <path d="M12 8v4m0 4h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Не удалось загрузить данные. <button class="retry-btn" @click="loadAgents">Повторить</button>
+      </div>
+
+      <div v-else class="layout">
         <!-- Левая панель: форма -->
         <aside class="layout__sidebar">
           <SearchForm
@@ -30,6 +48,9 @@
               <p class="empty-state__title">Результат появится здесь</p>
               <p class="empty-state__text">
                 Выберите тип сообщения, введите название ЮЛ / агента и нажмите «Сгенерировать»
+              </p>
+              <p class="empty-state__hint">
+                Данные: {{ agents.length }} агентов
               </p>
             </div>
 
@@ -68,7 +89,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 import AppHeader from './components/AppHeader.vue'
 import SearchForm from './components/SearchForm.vue'
@@ -76,15 +97,31 @@ import MultipleResults from './components/MultipleResults.vue'
 import ResultBlock from './components/ResultBlock.vue'
 import ErrorBlock from './components/ErrorBlock.vue'
 
-import rawAgents from './data/agents.json'
 import { templates } from './logic/templates'
 import { searchAgents } from './logic/search'
 import { validateAgent } from './logic/validate'
 
 import type { Agent, GeneratedMessage, AppState } from './types'
 
-// ─── Данные ──────────────────────────────────────────────────────────────────
-const agents = rawAgents as Agent[]
+// ─── Загрузка данных ──────────────────────────────────────────────────────────
+const agents = ref<Agent[]>([])
+const dataState = ref<'loading' | 'ready' | 'error'>('loading')
+
+async function loadAgents() {
+  dataState.value = 'loading'
+  try {
+    // import.meta.env.BASE_URL = '/generator_task_trext/' в prod, '/' в dev
+    const res = await fetch(`${import.meta.env.BASE_URL}agents.json`)
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    agents.value = await res.json()
+    dataState.value = 'ready'
+  } catch (e) {
+    console.error('Ошибка загрузки agents.json:', e)
+    dataState.value = 'error'
+  }
+}
+
+onMounted(loadAgents)
 
 // ─── Форма ───────────────────────────────────────────────────────────────────
 const selectedTemplateId = ref('')
@@ -108,7 +145,7 @@ function handleGenerate() {
 
   resetError()
 
-  const results = searchAgents(agents, query.value)
+  const results = searchAgents(agents.value, query.value)
 
   if (results.length === 0) {
     showError(
@@ -182,6 +219,44 @@ function resetError() {
   padding: 32px 24px;
 }
 
+/* Статусы загрузки данных */
+.data-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 400px;
+  margin: 80px auto;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.data-status--error {
+  color: #ef4444;
+}
+
+.retry-btn {
+  background: none;
+  border: none;
+  color: #6366f1;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.retry-btn:hover {
+  color: #4f46e5;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 0.9s linear infinite;
+  flex-shrink: 0;
+}
+
 .layout {
   max-width: 1080px;
   margin: 0 auto;
@@ -227,6 +302,12 @@ function resetError() {
   max-width: 300px;
   line-height: 1.5;
   margin: 0;
+}
+
+.empty-state__hint {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: #d1d5db;
 }
 
 /* Футер */
