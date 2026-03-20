@@ -12,9 +12,21 @@ export const templates: MessageTemplate[] = [
   {
     id: 'cert-prod',
     label: 'Прописка сертификатов PROD',
-    requiredFields: ['name'],
+    requiredFields: ['name', 'gateId', 'terminalIds'],
     buildTitle: (agent) => `${agent.name} — прописка сертификатов для PROD`,
-    buildBody: (agent) => `${agent.name} — прописка сертификатов для PROD`,
+    buildBody: (agent) => {
+      const formatted = formatTerminalIds(agent.terminalIds)
+      const count = agent.terminalIds.length
+      return (
+        `Коллеги, добрый день!\n` +
+        `Прошу вас валидировать и прописать сертификаты для PROD среды партнёру ${agent.name}.\n` +
+        `ID Agent: ${agent.gateId}\n` +
+        `Номера терминалов: ${formatted} (${count} шт.)\n` +
+        `Сертификаты прикладываю во вложении, архив — без пароля.\n` +
+        `Также для Mercury.\n` +
+        `Спасибо!`
+      )
+    },
   },
 
   // ─── 2. Доп терминалы — прописка сертификатов PROD ───────────────────────
