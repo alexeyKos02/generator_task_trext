@@ -98,7 +98,8 @@
       31954566,
       31954567,
       31954568,
-      31954866
+      31954866,
+      31954876
     ],
     "certAdded": true,
     "certMtsAdded": true,
@@ -173,8 +174,8 @@
       31954598,
       31954599
     ],
-    "certAdded": false,
-    "certMtsAdded": false,
+    "certAdded": true,
+    "certMtsAdded": true,
     "ticketsSelling": true,
     "comment": null,
     "problemTerminals": []
@@ -325,8 +326,8 @@
     ],
     "certAdded": true,
     "certMtsAdded": true,
-    "ticketsSelling": true,
-    "comment": null,
+    "ticketsSelling": false,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -414,12 +415,7 @@
     "certMtsAdded": true,
     "ticketsSelling": true,
     "comment": null,
-    "problemTerminals": [
-      {
-        "id": 31954873,
-        "status": "без игр"
-      }
-    ]
+    "problemTerminals": []
   },
   {
     "name": "ИП Максимов Максим Николаевич",
@@ -618,7 +614,14 @@
       31954835,
       31954858,
       31954870,
-      31954871
+      31954871,
+      31954877,
+      31954878,
+      31954879,
+      31954880,
+      31954881,
+      31954882,
+      31954883
     ],
     "certAdded": true,
     "certMtsAdded": true,
@@ -628,6 +631,34 @@
       {
         "id": 31954858,
         "status": "другое"
+      },
+      {
+        "id": 31954877,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954878,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954879,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954880,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954881,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954882,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954883,
+        "status": "не добавлен"
       }
     ]
   },
@@ -666,7 +697,7 @@
     "certAdded": false,
     "certMtsAdded": false,
     "ticketsSelling": false,
-    "comment": null,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -684,7 +715,7 @@
     "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
-    "comment": null,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -728,7 +759,7 @@
     "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
-    "comment": null,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -745,7 +776,7 @@
     "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
-    "comment": null,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -765,7 +796,7 @@
     "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
-    "comment": null,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -780,7 +811,7 @@
     "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
-    "comment": null,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -813,7 +844,7 @@
     "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
-    "comment": null,
+    "comment": "заблокирован",
     "problemTerminals": []
   },
   {
@@ -883,7 +914,7 @@
     "terminalIds": [
       31954820
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -898,7 +929,7 @@
     "terminalIds": [
       31954823
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -913,7 +944,7 @@
     "terminalIds": [
       31954829
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -931,7 +962,7 @@
       31954832,
       31954833
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -946,7 +977,7 @@
     "terminalIds": [
       31954859
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -961,7 +992,7 @@
     "terminalIds": [
       31954860
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -976,7 +1007,7 @@
     "terminalIds": [
       31954861
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -991,7 +1022,7 @@
     "terminalIds": [
       31954862
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -1006,7 +1037,7 @@
     "terminalIds": [
       31954863
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -1021,7 +1052,7 @@
     "terminalIds": [
       31954864
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -1036,7 +1067,7 @@
     "terminalIds": [
       31954865
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -1051,7 +1082,7 @@
     "terminalIds": [
       31954867
     ],
-    "certAdded": false,
+    "certAdded": true,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -1074,11 +1105,11 @@
     "problemTerminals": [
       {
         "id": 31954868,
-        "status": "без игр"
+        "status": "добавлен без сертификата"
       },
       {
         "id": 31954869,
-        "status": "без игр"
+        "status": "добавлен без сертификата"
       }
     ]
   },
@@ -1098,7 +1129,7 @@
     "problemTerminals": [
       {
         "id": 31954872,
-        "status": "без игр"
+        "status": "добавлен без сертификата"
       }
     ]
   },
