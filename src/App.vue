@@ -195,12 +195,12 @@ async function triggerSync(token: string) {
       }
     )
     if (res.status === 204) {
-      // Ждём ~35 сек, потом перезагружаем данные
+      // Ждём пока воркфлоу выполнится (~38 сек), потом перезагружаем данные
       setTimeout(async () => {
         await loadAgents()
         syncStatus.value = 'done'
         setTimeout(() => { syncStatus.value = 'idle' }, 4000)
-      }, 35000)
+      }, 38000)
     } else if (res.status === 401) {
       localStorage.removeItem(TOKEN_KEY)
       syncStatus.value = 'error'
@@ -220,11 +220,16 @@ async function triggerSync(token: string) {
 const agents = ref<Agent[]>([])
 const dataState = ref<'loading' | 'ready' | 'error'>('loading')
 
+const RAW_URL = 'https://raw.githubusercontent.com/alexeyKos02/generator_task_trext/main/public/agents.json'
+
 async function loadAgents() {
   dataState.value = 'loading'
   try {
-    // import.meta.env.BASE_URL = '/generator_task_trext/' в prod, '/' в dev
-    const res = await fetch(`${import.meta.env.BASE_URL}agents.json`)
+    // Загружаем напрямую из репозитория с cache-busting — данные всегда актуальные
+    const url = import.meta.env.DEV
+      ? `${import.meta.env.BASE_URL}agents.json`
+      : `${RAW_URL}?t=${Date.now()}`
+    const res = await fetch(url)
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     agents.value = await res.json()
     dataState.value = 'ready'
