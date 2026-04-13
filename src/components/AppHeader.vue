@@ -9,6 +9,9 @@
         <span class="app-header__title">Jira Generator</span>
       </div>
       <p class="app-header__subtitle">Генератор заголовков и текстов для Jira</p>
+      <div class="app-header__slot">
+        <slot name="actions" />
+      </div>
     </div>
   </header>
 </template>
@@ -47,6 +50,12 @@
   font-size: 13px;
   color: #6b7280;
   margin: 0;
+  flex: 1;
+}
+
+.app-header__slot {
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 @media (max-width: 480px) {
@@ -59,6 +68,10 @@
 
   .app-header__subtitle {
     padding-left: 38px;
+  }
+
+  .app-header__slot {
+    width: 100%;
   }
 }
 </style>
