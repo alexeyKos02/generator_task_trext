@@ -78,8 +78,8 @@
     ],
     "certAdded": true,
     "certMtsAdded": true,
-    "ticketsSelling": true,
-    "comment": null,
+    "ticketsSelling": false,
+    "comment": "расторжение",
     "problemTerminals": []
   },
   {
@@ -631,34 +631,6 @@
       {
         "id": 31954858,
         "status": "другое"
-      },
-      {
-        "id": 31954877,
-        "status": "добавлен без сертификата"
-      },
-      {
-        "id": 31954878,
-        "status": "добавлен без сертификата"
-      },
-      {
-        "id": 31954879,
-        "status": "добавлен без сертификата"
-      },
-      {
-        "id": 31954880,
-        "status": "добавлен без сертификата"
-      },
-      {
-        "id": 31954881,
-        "status": "добавлен без сертификата"
-      },
-      {
-        "id": 31954882,
-        "status": "добавлен без сертификата"
-      },
-      {
-        "id": 31954883,
-        "status": "добавлен без сертификата"
       }
     ]
   },
@@ -1098,20 +1070,11 @@
       31954868,
       31954869
     ],
-    "certAdded": false,
-    "certMtsAdded": false,
+    "certAdded": true,
+    "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
-    "problemTerminals": [
-      {
-        "id": 31954868,
-        "status": "добавлен без сертификата"
-      },
-      {
-        "id": 31954869,
-        "status": "добавлен без сертификата"
-      }
-    ]
+    "problemTerminals": []
   },
   {
     "name": "Бородин Алексей Валерьевич",
@@ -1122,16 +1085,11 @@
     "terminalIds": [
       31954872
     ],
-    "certAdded": false,
-    "certMtsAdded": false,
+    "certAdded": true,
+    "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
-    "problemTerminals": [
-      {
-        "id": 31954872,
-        "status": "добавлен без сертификата"
-      }
-    ]
+    "problemTerminals": []
   },
   {
     "name": "ИП Гаранкин Е.В.",
@@ -1142,8 +1100,8 @@
     "terminalIds": [
       31954875
     ],
-    "certAdded": false,
-    "certMtsAdded": false,
+    "certAdded": true,
+    "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
     "problemTerminals": [
