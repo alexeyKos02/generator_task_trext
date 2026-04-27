@@ -1100,7 +1100,7 @@
     "terminalIds": [
       31954875
     ],
-    "certAdded": true,
+    "certAdded": false,
     "certMtsAdded": true,
     "ticketsSelling": false,
     "comment": null,
@@ -1108,6 +1108,36 @@
       {
         "id": 31954875,
         "status": "без игр"
+      }
+    ]
+  },
+  {
+    "name": "ООО Торговый Дом Магнитка",
+    "gateId": 3055,
+    "guid1c": "c57e0104-421b-11f1-9063-005056a25b06",
+    "salesChannel1cbu": "",
+    "salesChannelReports": "",
+    "terminalIds": [
+      31954884,
+      31954885,
+      31954886
+    ],
+    "certAdded": false,
+    "certMtsAdded": false,
+    "ticketsSelling": false,
+    "comment": null,
+    "problemTerminals": [
+      {
+        "id": 31954884,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954885,
+        "status": "не добавлен"
+      },
+      {
+        "id": 31954886,
+        "status": "не добавлен"
       }
     ]
   }
