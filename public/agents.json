@@ -31,7 +31,12 @@
     "certMtsAdded": true,
     "ticketsSelling": true,
     "comment": null,
-    "problemTerminals": []
+    "problemTerminals": [
+      {
+        "id": 31954552,
+        "status": "не добавлен"
+      }
+    ]
   },
   {
     "name": "ИП Грущенко Лариса Петровна",
@@ -1129,15 +1134,15 @@
     "problemTerminals": [
       {
         "id": 31954884,
-        "status": "не добавлен"
+        "status": "добавлен без сертификата"
       },
       {
         "id": 31954885,
-        "status": "не добавлен"
+        "status": "добавлен без сертификата"
       },
       {
         "id": 31954886,
-        "status": "не добавлен"
+        "status": "добавлен без сертификата"
       }
     ]
   }
