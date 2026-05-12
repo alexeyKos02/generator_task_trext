@@ -19,7 +19,7 @@ import urllib.parse
 from pathlib import Path
 
 # ─── Настройки ────────────────────────────────────────────────────────────────
-YANDEX_DISK_PUBLIC_URL = "https://disk.yandex.ru/i/Btt9AO4fER4ilg"
+YANDEX_DISK_PUBLIC_URL = "https://disk.yandex.ru/i/Se7v9O6ME4LyhA"
 OUTPUT_PATH = Path(__file__).parent.parent / "public" / "agents.json"
 
 # Терминалы с этими статусами не попадают в панель напоминаний
